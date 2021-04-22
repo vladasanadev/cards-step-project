@@ -26,10 +26,14 @@ class LoginForm {
                 console.log(token)
                 this.token = token
             })
-            // let cardList = new CardList(token, parent);
+        form.remove();
+        // let cardList = new CardList(token, parent);
         // cardList.render()
         // Vlada -- Initialize constructor 2. Remove LoginForm 3. Render
         // Andrew -- 1.Create class CardList 2.Create constructor(token,parent) 3. create render() function
+
+
+
 
     }
 
@@ -41,6 +45,8 @@ class LoginForm {
         loginBtn.classList.add("login__btn");
         error.classList.add("login__error");
         loginBtn.innerHTML = "LOGIN";
+        password.setAttribute("type", "password");
+        password.setAttribute("value", "pswtext");
 
         loginBtn.addEventListener("click", (e) => this.handleLogin(e))
 
