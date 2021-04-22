@@ -15,13 +15,14 @@ export default class LoginForm {
     }
 
     toggleClicked(){
-        this.ELEMENTS.password.classList.toggle('visible');
-        console.log(this.ELEMENTS.togglePassword.checked)
-        if (this.ELEMENTS.togglePassword.checked) {
+        const {password, togglePassword} = this.ELEMENTS;
+        password.classList.toggle('visible');
+        console.log(togglePassword.checked)
+        if (togglePassword.checked) {
 
-            this.ELEMENTS.password.type = "text";
+            password.type = "text";
         } else {
-            this.ELEMENTS.password.type = "password";
+            password.type = "password";
         }
     }
 
@@ -41,15 +42,13 @@ export default class LoginForm {
             .then(token => {
                 console.log(token)
                 this.token = token
+                sessionStorage.setItem("token", JSON.stringify(token))
             })
         form.remove();
         // let cardList = new CardList(token, parent);
         // cardList.render()
         // Vlada -- Initialize constructor 2. Remove LoginForm 3. Render
         // Andrew -- 1.Create class CardList 2.Create constructor(token,parent) 3. create render() function
-
-
-
 
     }
 
