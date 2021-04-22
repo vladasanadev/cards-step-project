@@ -30,7 +30,7 @@ class Modal {
         this.elementCreater()
 
         select.addEventListener('change', (e) => {
-            const form = new Form(e.target.value, self)
+            const form = new Form(e.target.value, self, this.token)
             form.render()
         })
 
@@ -39,7 +39,6 @@ class Modal {
         parent.append(self)
     } 
 }
-
 
 const modal = new Modal;
 modal.render();

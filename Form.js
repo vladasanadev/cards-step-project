@@ -1,7 +1,8 @@
 class Form{
-    constructor(value, deleteItem){
+    constructor(value, deleteItem, token){
         this.value = value;
         this.deleteItem = deleteItem;
+        this.token = token;
         this.elements = {
             body: document.querySelector('body'),
             self: document.createElement('div'),
@@ -56,7 +57,7 @@ class Form{
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer 93100f01-a0f2-4e04-86f2-00d9399afe29`
+                'Authorization': `Bearer ${this.token}`
               },
               body: JSON.stringify({
                 title: `${purpose.value}`,
