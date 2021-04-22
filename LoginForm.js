@@ -1,3 +1,4 @@
+import API from "./API.js";
 export default class LoginForm {
 
     constructor(parentElement) {
@@ -31,19 +32,21 @@ export default class LoginForm {
     async handleLogin(e) {
         e.preventDefault();
         const {form, userEmail, password, loginBtn,instruction} = this.ELEMENTS;
-        let user = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({email: userEmail.value, password: password.value})
-        })
-            .then(response => response.text())
-            .then(token => {
-                console.log(token)
-                this.token = token
-                sessionStorage.setItem("token", JSON.stringify(token))
-            })
+        // let user = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({email: userEmail.value, password: password.value})
+        // })
+        //     .then(response => response.text())
+        //     .then(token => {
+        //         console.log(token)
+        //         this.token = token
+        //         sessionStorage.setItem("token", JSON.stringify(token))
+        //     })
+        const token = await API.login({email: userEmail.value, password: password.value});
+        API.saveToken(token)
         form.remove();
         // let cardList = new CardList(token, parent);
         // cardList.render()
