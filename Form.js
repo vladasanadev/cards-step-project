@@ -26,6 +26,7 @@ class Form{
         title.classList.add(`form-create-user__title`)
         purpose.classList.add(`form-create-user__purpose`)
         shortInfo.classList.add(`form-create-user__shortinfo`)
+        select.classList.add(`select-urgency-order`)
         indefic.classList.add(`form-create-user__indefic`)
         btn.classList.add(`form-create-user__btn`)
 
