@@ -63,6 +63,7 @@ class Form{
                 title: `${purpose.value}`,
                 description: `${shortInfo.value}`,
                 doctor: `${this.value}`,
+                order: `${select.value}`,
                 fullName: `${indefic.value}`
               })
             })
