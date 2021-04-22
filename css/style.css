@@ -43,3 +43,70 @@
 .form-create-user__btn {
     margin-bottom: 50px;
 }
+
+.login {
+    width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    background-color: lightgrey;
+    border-radius: 1em;
+}
+
+.login__email, .login__password {
+    border: none;
+    outline: none;
+    margin-bottom: 1em;
+    padding: 1em 2em;
+    border-radius: 5em;
+}
+
+.login__btn {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #9C27B0, #E040FB);
+    border: 0;
+    padding:15px 40px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    text-transform: uppercase;
+    margin-top: 2em;
+
+
+}
+.login__instructions{
+
+    color: #8C55AA;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+#password {
+    background-image: url("https://img.icons8.com/material-sharp/20/000000/visible.png");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+}
+#password.visible {
+    background-image: url("https://img.icons8.com/material-outlined/20/000000/invisible.png");
+}
+#toggle-password {
+    display: none;
+}
+#toggle-password + label {
+    text-indent: -9999px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 370px;
+    cursor: pointer;
+    position: fixed;
+    top: 25%;
+
+}
+

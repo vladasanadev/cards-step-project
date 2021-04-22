@@ -6,14 +6,30 @@ export default class LoginForm {
                 form: document.createElement("form"),
                 userEmail: document.createElement("input"),
                 password: document.createElement("input"),
+                togglePassword: document.createElement("input"),
+                visibility: document.createElement("label"),
                 loginBtn: document.createElement("button"),
-                error: document.createElement("span")
+                instruction: document.createElement("p")
+
             }
     }
 
+    toggleClicked(){
+        this.ELEMENTS.password.classList.toggle('visible');
+        console.log(this.ELEMENTS.togglePassword.checked)
+        if (this.ELEMENTS.togglePassword.checked) {
+
+            this.ELEMENTS.password.type = "text";
+        } else {
+            this.ELEMENTS.password.type = "password";
+        }
+    }
+
+
+
     async handleLogin(e) {
         e.preventDefault();
-        const {form, userEmail, password, loginBtn,error} = this.ELEMENTS;
+        const {form, userEmail, password, loginBtn,instruction} = this.ELEMENTS;
         let user = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
             method: 'POST',
             headers: {
@@ -38,19 +54,32 @@ export default class LoginForm {
     }
 
     render() {
-        const {form, userEmail, password, loginBtn,error} = this.ELEMENTS;
+        const {form, userEmail, password, loginBtn,instruction, togglePassword,visibility} = this.ELEMENTS;
         form.classList.add("login");
         userEmail.classList.add("login__email");
         password.classList.add("login__password");
+        password.id = "password";
+        password.name = "password";
+        togglePassword.classList.add("toggle-password");
+        togglePassword.id = "toggle-password";
+        visibility.htmlFor = "toggle-password";
+        visibility.innerHTML = "Show Password",
         loginBtn.classList.add("login__btn");
-        error.classList.add("login__error");
+        instruction.classList.add("login__instructions");
         loginBtn.innerHTML = "LOGIN";
-        password.setAttribute("type", "password");
-        password.setAttribute("value", "pswtext");
+        instruction.innerText ="Sing in";
 
+        password.setAttribute("type", "text");
+        // password.setAttribute("value", "pswtext");
+        togglePassword.setAttribute("type", "checkbox");
+
+        userEmail.placeholder = 'Email';
+        password.placeholder = 'Password';
+
+        togglePassword.addEventListener("click", () => this.toggleClicked());
         loginBtn.addEventListener("click", (e) => this.handleLogin(e))
 
-        form.append(userEmail, password, loginBtn, error);
+        form.append(instruction, userEmail, password, loginBtn, togglePassword,visibility);
         this.parent.append(form);
     }
 }
