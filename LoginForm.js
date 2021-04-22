@@ -1,4 +1,4 @@
-class LoginForm {
+export default class LoginForm {
 
     constructor(parentElement) {
         this.parent = parentElement,
