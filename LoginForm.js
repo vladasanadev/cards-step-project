@@ -1,5 +1,4 @@
 class LoginForm {
-
     constructor(parentElement) {
         this.parent = parentElement,
             this.ELEMENTS = {
@@ -13,7 +12,7 @@ class LoginForm {
 
     async handleLogin(e) {
         e.preventDefault();
-        const {form, userEmail, password, loginBtn,error} = this.ELEMENTS;
+        const {form, userEmail, password, loginBtn, error} = this.ELEMENTS;
         let user = await fetch("https://ajax.test-danit.com/api/v2/cards/login", {
             method: 'POST',
             headers: {
@@ -23,8 +22,7 @@ class LoginForm {
         })
             .then(response => response.text())
             .then(token => {
-                console.log(token)
-                this.token = token
+                localStorage.setItem('token' ,`${token}`)
             })
         form.remove();
         // let cardList = new CardList(token, parent);

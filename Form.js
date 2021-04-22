@@ -1,8 +1,7 @@
-class Form{
-    constructor(value, deleteItem, token){
+export default class Form {
+    constructor(value, deleteItem){
         this.value = value;
         this.deleteItem = deleteItem;
-        this.token = token;
         this.elements = {
             body: document.querySelector('body'),
             self: document.createElement('div'),

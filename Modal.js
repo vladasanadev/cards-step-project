@@ -1,3 +1,5 @@
+import Form from "./Form.js";
+
 class Modal {
     constructor() {
         this.elements = {
@@ -40,5 +42,6 @@ class Modal {
     } 
 }
 
-const modal = new Modal;
-modal.render();
+const modul = new Modal();
+
+modul.render();
