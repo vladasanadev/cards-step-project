@@ -1,42 +1,22 @@
-import Visit from "./Visit.js";
+import Form from "./Form.js";
 
-export default class Form{
-    constructor() {
-        const visit = new Visit();
-        this.elements = {
-            self: document.createElement('div'),
-            form: document.createElement('form'),
-            formElements: visit.render(),
-        }
+export default class Modal{
+  constructor(){
+    const form = new Form();
+    this.elements = {
+      btn: document.createElement('button'),
+      form: form.render()
     }
-    render() {
-        const {self, form, formElements} = this.elements
-        self.classList.add('form-wrapper')
-        form.classList.add('form-create-user')
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            fetch("https://ajax.test-danit.com/api/v2/cards", {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.token}`
-              },
-              body: JSON.stringify({
-                title: `${purpose.value}`,
-                description: `${shortInfo.value}`,
-                doctor: `${this.value}`,
-                order: `${select.value}`,
-                fullName: `${indefic.value}`
-              })
-            })
-            .then(res => res.json())
-            .then(response => console.log(response))
-        })
-        form.append(formElements)
-        self.append(form)
-        document.querySelector('body').append(self)
-    }
+  }
+  render(){
+    const {btn, form} = this.elements
+    btn.textContent = 'Create user'
+    btn.addEventListener('click', () => {
+      document.querySelector('body').append(form)
+    })
+    document.querySelector('body').append(btn)
+  }
 }
 
-const form = new Form();
-form.render()
+const modal = new Modal()
+modal.render()
