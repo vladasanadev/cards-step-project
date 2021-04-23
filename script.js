@@ -1,14 +1,9 @@
 
-// import LoginForm from "./LoginForm.js";
-//
-// const login = new LoginForm(document.querySelector('.container'));
-// login.render()
-
-import LoginForm from "./LoginForm.js";
 import FormFilter from "./FilterForm.js";
 
 const  filter = new FormFilter(document.body);
 filter.render();
+
 
 
 
