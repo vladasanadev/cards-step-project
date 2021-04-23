@@ -1,47 +1,42 @@
-import Form from "./Form.js";
+import Visit from "./Visit.js";
 
-class Modal {
+export default class Form{
     constructor() {
+        const visit = new Visit();
         this.elements = {
-            parent: document.querySelector('body'),
             self: document.createElement('div'),
-            select: document.createElement('select'),
-            makeChoice: document.createElement('option'),
-            cardiologist: document.createElement('option'),
-            dentist: document.createElement('option'),
-            therapist: document.createElement('option')
+            form: document.createElement('form'),
+            formElements: visit.render(),
         }
     }
-
-    elementCreater() {
-        const {self, select, makeChoice, cardiologist, dentist, therapist} = this.elements;
-        self.classList.add(`select-wrapper`)
-        select.classList.add(`choice-doctor__list`)
-        cardiologist.classList.add(`cardiologist-option`)
-        dentist.classList.add(`dentist-option`)
-        therapist.classList.add(`therapist-option`)
-
-        cardiologist.textContent = 'Кардиолог'
-        dentist.textContent = 'Стоматолог'
-        therapist.textContent = 'Терапевт'
-        makeChoice.textContent = 'Make a choice!'
-    }
-
-    async render() {
-        const {parent, self, select, makeChoice, cardiologist, dentist, therapist} = this.elements;
-        this.elementCreater()
-
-        select.addEventListener('change', (e) => {
-            const form = new Form(e.target.value, self, this.token)
-            form.render()
+    render() {
+        const {self, form, formElements} = this.elements
+        self.classList.add('form-wrapper')
+        form.classList.add('form-create-user')
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetch("https://ajax.test-danit.com/api/v2/cards", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.token}`
+              },
+              body: JSON.stringify({
+                title: `${purpose.value}`,
+                description: `${shortInfo.value}`,
+                doctor: `${this.value}`,
+                order: `${select.value}`,
+                fullName: `${indefic.value}`
+              })
+            })
+            .then(res => res.json())
+            .then(response => console.log(response))
         })
-
-        select.append(makeChoice, cardiologist, dentist, therapist)
-        self.append(select)
-        parent.append(self)
-    } 
+        form.append(formElements)
+        self.append(form)
+        document.querySelector('body').append(self)
+    }
 }
 
-const modul = new Modal();
-
-modul.render();
+const form = new Form();
+form.render()
