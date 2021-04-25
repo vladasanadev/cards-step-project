@@ -19,6 +19,66 @@
     margin: 10px 40px;
 }
 
+<<<<<<< HEAD
+=======
+
+.form-create-user__title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.form-create-user__title::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    margin: 15px auto 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form-create-user__title {
+    margin-top: 30px;
+}
+
+.form-create-user__purpose, .form-create-user__shortinfo, .form-create-user__indefic, .select-urgency-order {
+    font-family: 'Times New Roman', Times, serif;
+    outline: none;
+    border: 1px solid rgb(6, 16, 73);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.form-create-user__purpose:focus, .form-create-user__shortinfo:focus, .form-create-user__indefic:focus, .select-urgency-order:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(5, 36, 214);
+}
+
+.form-create-user__btn {
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color: rgba(14, 137, 238, 0.4);
+}
+
+.form-create-user__btn:hover {
+    transition: all 0.7s ease-in-out;
+    background-color: rgba(14, 137, 238, 1);
+}
+
+
+.doctors-forms {
+    display: flex;
+    flex-direction: column;
+}
+
+
+>>>>>>> Adjusted filter
 .header{
     width: 100%;
     background-color: red;
@@ -46,6 +106,7 @@
     border-radius: 5px;
     color: white;
 }
+
 
 .login {
     width: 400px;
@@ -112,4 +173,6 @@
     top: 31.2%;
 
 }
+
+
 
