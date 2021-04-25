@@ -16,20 +16,20 @@ export default class Visit{
             self: document.createElement('div'),
             title: document.createElement('h3'),
             selectDoctor: formSelect.render([{cl: 'make-ch', text: 'Сделайте вибор'}, {cl: 'cardiologist-option', text: 'Кардиолог'},{cl: 'dentist-option', text: 'Стоматолог'},{cl: 'therapist-option', text: 'Терапевт'}]),
-            inputPurpose: formInput.render('text', 'Цель визита', `form-create-user__purpose`),
-            textarea: formTextarea.render(`form-create-user__shortinfo`, 'Краткое описание визита'),
+            inputPurpose: formInput.render('text', 'Цель визита', `form-create-user purpose`),
+            textarea: formTextarea.render(`form-create-user shortinfo`, 'Краткое описание визита'),
             selectOrder: formSelect.render([{cl: 'make-ch', text: 'Сделайте вибор'}, {cl: 'cardiologist-option', text: 'Обычная'},{cl: 'dentist-option', text: 'Приоритетная'},{cl: 'therapist-option', text: 'Неотложная'}]),
-            inputFio: formInput.render('text', 'ФИО', `form-create-user__indefic`),
+            inputFio: formInput.render('text', 'ФИО', `form-create-user fio`),
             btn: document.createElement('button'),
         }
     }
 
-    async createElements() {
+    createElements() {
         const {self, title, selectDoctor, inputPurpose, textarea, selectOrder, inputFio, btn} = this.elements
         self.classList.add(`visit-content__wrapper`)
         title.classList.add(`form-create-user__title`)
-        // selectDoctor.classList.add(`choice-doctor__list`)
-        // selectOrder.classList.add(`select-urgency-order`)
+        selectDoctor.className = `choice-doctor doctor`
+        selectOrder.className = `select-urgency order`
         
         title.textContent = 'Создать карту визита'
 
@@ -39,6 +39,11 @@ export default class Visit{
     }
 
     heandleChange(e) {
+        if (document.querySelector('.form-cardiologist')) {
+            console.log(document.querySelector('.form-cardiologist'))
+            console.dir(document.querySelector('.form-cardiologist'))
+        }
+
         switch (e.target.value) {
             case 'Кардиолог': {
                 const visitCardiologist = new VisitCardiologist();

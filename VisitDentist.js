@@ -9,8 +9,8 @@ export default class VisitDentist{
             date: formInput.render('date', 'Дата последнего посещения', `form-create-user__date`)
         }
     }
-    async render(){
-        const {parent, date} = this.elements;
-        parent.append(date)
+    render(){
+        const {parent,date} = this.elements;
+        parent.lastChild.insertAdjacentElement('beforebegin', date)
     }
 }

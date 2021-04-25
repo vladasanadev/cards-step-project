@@ -8,14 +8,23 @@ export default class VisitCardiologist{
 
         this.elements = {
             parent: document.querySelector('.visit-content__wrapper'),
-            inputPressure: formInput.render('text', 'Давление', `form-create-user__pressure`),
-            inputBmi: formInput.render('text', 'Индекс массы тела', `form-create-user__bmi`),
-            textarea: formTextarea.render(`form-create-user__pastDiseases`, 'Перенесенные заболевания сердечно-сосудистой системы'),
-            age: formInput.render('number', 'Возраст', `form-create-user__age`)
+            self: document.createElement('div'),
+            inputPressure: formInput.render('text', 'Давление', `form-cardiologist pressure`),
+            inputBmi: formInput.render('text', 'Индекс массы тела', `form-cardiologist bmi`),
+            textarea: formTextarea.render(`form-cardiologist pastDiseases`, 'Перенесенные заболевания сердечно-сосудистой системы'),
+            age: formInput.render('number', 'Возраст', `form-cardiologist age`)
         }
     }
+
+    renderElements(arr){
+        const {parent} = this.elements
+        arr.forEach(element => {
+            parent.lastChild.insertAdjacentElement('beforebegin', element)
+        });
+    }
+
     render(){
-        const {parent, inputPressure, inputBmi, textarea, age} = this.elements;
-        parent.append(inputPressure, inputBmi, textarea, age)
+        const {inputPressure, inputBmi, textarea, age} = this.elements;
+        this.renderElements([inputPressure, inputBmi, textarea, age])
     }
 }

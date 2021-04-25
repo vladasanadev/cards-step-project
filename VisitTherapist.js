@@ -9,8 +9,8 @@ export default class VisitTherapist{
             age: formInput.render('number', 'Возраст', `form-create-user__age`)
         }
     }
-    async render(){
+    render(){
         const {parent, age} = this.elements;
-        parent.append(age)
+        parent.lastChild.insertAdjacentElement('beforebegin', age)
     }
 }

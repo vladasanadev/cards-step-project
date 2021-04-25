@@ -3,7 +3,7 @@ export default class FormInput{
         let input = document.createElement('input')
        input.type = tp
        input.placeholder = ph
-       input.classList.add(`${cl}`)
+       input.className =`${cl}`
        return input
     }
 }

@@ -3,7 +3,7 @@ export default class FormSelect{
         let select = document.createElement('select')
         arr.forEach(element => {
             let option = document.createElement('option')
-            option.classList.add(element.cl)
+            option.className = element.cl
             option.textContent = `${element.text}`
             select.append(option)
             });
