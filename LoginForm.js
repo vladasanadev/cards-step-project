@@ -48,6 +48,7 @@ export default class LoginForm {
         const token = await API.login({email: userEmail.value, password: password.value});
         API.saveToken(token)
         form.remove();
+        window.location.reload()
         // let cardList = new CardList(token, parent);
         // cardList.render()
         // Vlada -- Initialize constructor 2. Remove LoginForm 3. Render

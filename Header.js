@@ -34,7 +34,7 @@ export default class Header {
         }); // on click open modal window Create Visit
 
 
-        localStorage.getItem("token") ? header.append(imgLogo, btnCreateVisit) : header.append(imgLogo, btnLogin);
+        sessionStorage.getItem("token") ? header.append(imgLogo, btnCreateVisit) : header.append(imgLogo, btnLogin);
         parent.prepend(header);
     }
 }
