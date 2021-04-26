@@ -1,5 +1,5 @@
 export default class ElementSelect{
-    constructor(arr){
+    constructor(arr, selectClass){
         this.arr = arr;
         this.optionAppend = (element, select) => {
             let option = document.createElement('option');
@@ -9,6 +9,7 @@ export default class ElementSelect{
         };
         this.render = () => {
             let select = document.createElement('select');
+            select.className = `${selectClass}`
             this.arr.forEach(element => {this.optionAppend(element, select)});
             return select;
         };

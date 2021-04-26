@@ -1,22 +1,17 @@
-import Form from "./Form.js";
+import ElementForm from "./ElementForm.js";
 
 export default class Modal{
   constructor(){
-    const form = new Form();
-    this.elements = {
-      btn: document.createElement('button'),
-      form: form.render()
+      this.elements = {
+        self: document.createElement('div')
+      }
+      this.createCardCreaterForm = () => {
+        const {self} = this.elements
+        self.className = `form-wrapper`
+        new ElementForm(self, 'form-create-user').formCreateCard();
+        return document.body.append(self)
+      } 
     }
-  }
-  render(){
-    const {btn, form} = this.elements
-    btn.textContent = 'Create user'
-    btn.addEventListener('click', () => {
-      document.querySelector('body').append(form)
-    })
-    document.querySelector('body').append(btn)
-  }
 }
 
-const modal = new Modal()
-modal.render()
+new Modal().createCardCreaterForm();
