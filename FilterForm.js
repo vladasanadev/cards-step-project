@@ -1,5 +1,5 @@
-import FormSelect from "./FormSelect.js"
-import FormInput from "./FormInput.js"
+import FormSelect from "./ElementSelect.js"
+import FormInput from "./ElementInput.js"
 
 
 export default class FilterForm{
