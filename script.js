@@ -1,14 +1,11 @@
 
-import FormFilter from "./FilterForm.js";
-
-const  filter = new FormFilter(document.body);
-filter.render();
-
-
-
-
 import Header from "./Header.js";
+import CardList from "./CardList.js"
 
 const header = new Header();
-
 header.render();
+
+const cardList = new CardList();
+cardList.render();
+
+
