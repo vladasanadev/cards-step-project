@@ -4,7 +4,7 @@ import ElementTextarea from "./ElementTextarea.js";
 import ElementBtn from "./ElementBtn.js";
 
 export default class ElementForm{
-    constructor(parent, c){
+    constructor(parent, c, data){
         this.elements = {
             parent: parent,
             defaultClass: c,
@@ -16,7 +16,7 @@ export default class ElementForm{
             textareaShortInfo: new ElementTextarea(`form-create-user shortinfo`, 'Краткое описание визита').render(),
             selectOrder: new ElementSelect([{cl: 'make-ch', text: 'Сделайте вибор'}, {cl: 'cardiologist-option', text: 'Обычная'},{cl: 'dentist-option', text: 'Приоритетная'},{cl: 'therapist-option', text: 'Неотложная'}], 'select order').render(),
             InputFIO: new ElementInput('text', 'ФИО', `form-create-user fio`).render(),
-            createCardBtn: new ElementBtn(`sumbit`, `form-create-user__btn`, `Создать визит`).render(),
+            createCardBtn: new ElementBtn(`sumbit`, `form-create-user__btn`, `Создать визит`, 'data').render(),
         }
         this.elementsForDoctors = {
             inputPressure:  new ElementInput('text', 'Давление', `form-cardiologist pressure`).render(),
@@ -102,6 +102,9 @@ export default class ElementForm{
             const {parent, defaultClass} = this.elements;
             let form = document.createElement('form');
             form.className = `${defaultClass}`;
+            if (data) {
+                btn.dataset.value = `${data}`;
+            };
             parent.append(form);
             return parent;
         };

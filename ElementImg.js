@@ -1,5 +1,5 @@
 export default class ElementImg{
-    constructor(cl, s, w, h){
+    constructor(cl, s, data, w, h){
         this.elements = {
             defaultClass: cl,
             src: s,
@@ -14,6 +14,9 @@ export default class ElementImg{
             if (width && height) {
                 img.width = `${width}`;
                 img.height = `${height}`;
+            };
+            if (data) {
+                btn.dataset.value = `${data}`;
             };
             return img;
         };

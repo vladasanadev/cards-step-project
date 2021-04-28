@@ -1,5 +1,5 @@
 export default class ElementTextarea{
-    constructor(cl, pl){
+    constructor(cl, pl, data){
         this.elements = {
             placeholder: pl,
             defaultClass: cl,
@@ -9,6 +9,9 @@ export default class ElementTextarea{
             let textarea = document.createElement('textarea');
             textarea.placeholder = `${placeholder}`;
             textarea.className = `${defaultClass}`;
+            if (data) {
+                btn.dataset.value = `${data}`;
+            };
             return textarea;
         };
     };
