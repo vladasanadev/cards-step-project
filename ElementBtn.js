@@ -1,5 +1,5 @@
 export default class ElementBtn{
-    constructor(t, c, text){
+    constructor(t, c, text, data){
         this.elements = {
             type: t,
             defaultClass : c,
@@ -11,6 +11,9 @@ export default class ElementBtn{
             btn.type = `${type}`;
             btn.className = `${defaultClass}`;
             btn.textContent = `${textContent}`;
+            if (data) {
+                btn.dataset.value = `${data}`;
+            };
             return btn;
         };
     };

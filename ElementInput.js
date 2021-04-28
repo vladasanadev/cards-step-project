@@ -1,5 +1,5 @@
 export default class ElementInput{
-    constructor(tp, ph, cl){
+    constructor(tp, ph, cl, data){
         this.elements = {
             type: tp,
             placeholder: ph,
@@ -11,6 +11,9 @@ export default class ElementInput{
             input.type = type;
             input.placeholder = placeholder;
             input.className =`${defaultClass}`;
+            if (data) {
+                btn.dataset.value = `${data}`;
+            };
             return input;
         };
     };
