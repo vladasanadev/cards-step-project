@@ -3,7 +3,7 @@
 // const login = new LoginForm(document.querySelector('.container'));
 // login.render()
 
-
+console.log("Hey")
 import Header from "./Header.js";
 
 const header = new Header();
