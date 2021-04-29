@@ -1,17 +1,19 @@
-import FormSelect from "./ElementSelect.js"
-import FormInput from "./ElementInput.js"
+import ElementSelect from "./ElementSelect.js"
+import ElementInput from "./ElementInput.js"
+import API from "./API.js"
+// import CardList from "./CardList";
 
 
 export default class FilterForm{
     constructor(parent) {
-        this.parent = parent,
-            this.inputTitle = new FormInput()
-        this.dueDateSelector = new FormSelect()
-        this.prioritySelector = new FormSelect()
-        this.form = document.createElement('form'), //REMOVE AFTER TIM CHANGE FORM CLASS
+        this.parent = parent
+            this.inputTitle = new ElementInput("text", "Card name", "")
+        this.dueDateSelector = new ElementSelect([{cl:"classname", text:"done"}, {cl:"classname", text:"open"}], "a")
+        this.prioritySelector = new ElementSelect([{cl:"classname", text:"high"}, {cl:"classname", text:"normal"}, {cl:"classname", text:"low"}], "a")
+        this.form = document.createElement('form') //REMOVE AFTER TIM CHANGE FORM CLASS
         this.button = document.createElement("button")
         this.cards = data.map(el => {
-            el.data = "2010-12-17T03:24:00",
+            el.data = "2010-12-17T03:24:00"
             el.priority = "low"
             return el
         }) //SWITCH FOR THE REAL CARDS ARRAY FROM ANDREW
@@ -21,40 +23,53 @@ export default class FilterForm{
         e.preventDefault()
         const {cards, inputTitle, dueDateSelector, prioritySelector } = this;
 
-        cards.forEach(card => {
+       const filteredCards = cards.filter(card => {
             // console.log(card, new Date(), new Date(card?.data), date.value, priority.value)
             const status = new Date() < new Date(card?.data)? "open" : "done";
             if (inpt.value)
             {
-            if (card.title === inpt.value && card.priority === priority.value && status === date.value)
+
+            if (card.priority === priority.value && status === date.value)
             {
+                Object.values(card).filter((item) => {
+                    if (item === inpt.value) return card;
+                });
                 console.log(card, "Here")
+
             }
             }
             else  if (card.priority === priority.value && status === date.value)
             {
                 console.log(card, "Here222")
+                return card;
             }
 
         })
+       // this.cardlist.clearcards();
+       // this.cardList.renderCads(filteredCards);
 
 
     }
 
-    render()
+    async render()
     {
-
+        this.cardsAPI = await API.getAllCards()
+        console.log(this.cardsAPI)
         const {parent, form, inputTitle, dueDate, prioritySelector, button, dueDateSelector} = this;
         button.innerHTML = "SEARCH"
         console.log(inputTitle);
-       const inpt = inputTitle.render("text", "Card name", "")
+       const inpt = inputTitle.render()
         console.log(inpt);
-        const date = dueDateSelector.render([{cl:"classname", text:"done"}, {cl:"classname", text:"open"}])
-        const priority = prioritySelector.render([{cl:"classname", text:"high"}, {cl:"classname", text:"normal"}, {cl:"classname", text:"low"}])
+        const date = dueDateSelector.render()
+        const priority = prioritySelector.render()
         form.append(inpt,date,priority, button)
        parent.append(form);
 
         button.addEventListener("click", (e) => this.filterHandler(e, inpt, date, priority))
+        // this.cardlist = new CardList()
+        // this.cardlist.render();
+        // this.cardlist.renderCards(this.cardsAPI);
+        //
     }
 }
 

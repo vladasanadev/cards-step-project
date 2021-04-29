@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7df0d3c-f7bb-46c4-be4e-eb0196450a6a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FilterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FilterForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,8 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
