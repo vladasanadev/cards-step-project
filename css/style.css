@@ -1,20 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.visit-content__wrapper{
+.visit-content__wrapper {
     margin: 0;
     padding: 0;
 }
 
-.visit-content__wrapper{
+.visit-content__wrapper {
     display: flex;
     flex-direction: column;
 }
 
-.visit-content__wrapper  > * {
+.visit-content__wrapper > * {
     padding: 0;
     margin: 10px 40px;
 }
@@ -76,29 +76,31 @@
 }
 
 
-
-.header{
+.header {
     width: 100%;
-    background-color: red;
+    background-color: lightgrey;
     display: flex;
     justify-content: space-between;
     padding: 15px;
 }
-.header__logo{
+
+.header__logo {
     width: 50px;
     height: 50px;
 }
-.header__button-login{
+
+.header__button-login {
     padding: 10px 40px;
-    background-color: darkgreen;
+    background:  linear-gradient(to right, #9C27B0, #E040FB);
     outline: none;
     border: none;
     border-radius: 5px;
     color: white;
 }
-.header__button-create-elem{
+
+.header__button-create-elem {
     padding: 10px 40px;
-    background-color: green;
+    background:  linear-gradient(to right, #9C27B0, #E040FB);
     outline: none;
     border: none;
     border-radius: 5px;
@@ -107,14 +109,20 @@
 
 
 .login {
+
     width: 400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
-    background-color: lightgrey;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .login__email, .login__password {
@@ -131,16 +139,17 @@
     color: #fff;
     background: linear-gradient(to right, #9C27B0, #E040FB);
     border: 0;
-    padding:15px 40px;
+    padding: 15px 40px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     text-transform: uppercase;
-    margin-top: 2em;
+    margin: 2em;
 
 
 }
-.login__instructions{
+
+.login__instructions {
 
     color: #8C55AA;
     font-family: 'Ubuntu', sans-serif;
@@ -149,17 +158,21 @@
     text-align: center;
     margin-bottom: 2em;
 }
+
 #password {
     background-image: url("https://img.icons8.com/material-sharp/20/000000/visible.png");
     background-position: 97% center;
     background-repeat: no-repeat;
 }
+
 #password.visible {
     background-image: url("https://img.icons8.com/material-outlined/20/000000/invisible.png");
 }
+
 #toggle-password {
     display: none;
 }
+
 #toggle-password + label {
     text-indent: -9999px;
     display: inline-block;
@@ -170,6 +183,19 @@
     position: fixed;
     top: 31.2%;
 
+}
+
+.filter__form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /*align-items: center;*/
+    padding: 2rem;
+}
+.filter__select
+{
+    width: 20rem;
+    margin: 1px;
 }
 
 
