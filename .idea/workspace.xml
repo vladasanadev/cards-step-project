@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c7df0d3c-f7bb-46c4-be4e-eb0196450a6a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/CardList.js" beforeDir="false" afterPath="$PROJECT_DIR$/CardList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/Modal.js" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/FilterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/FilterForm.js" afterDir="false" />
+>>>>>>> added some styles to filter form
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

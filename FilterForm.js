@@ -1,5 +1,6 @@
 import ElementSelect from "./ElementSelect.js"
 import ElementInput from "./ElementInput.js"
+import ElementBtn from "./ElementBtn.js";
 import API from "./API.js"
 // import CardList from "./CardList";
 
@@ -7,10 +8,12 @@ import API from "./API.js"
 export default class FilterForm{
     constructor(parent) {
         this.parent = parent
-            this.inputTitle = new ElementInput("text", "Card name", "")
-        this.dueDateSelector = new ElementSelect([{cl:"classname", text:"done"}, {cl:"classname", text:"open"}], "a")
-        this.prioritySelector = new ElementSelect([{cl:"classname", text:"high"}, {cl:"classname", text:"normal"}, {cl:"classname", text:"low"}], "a")
         this.form = document.createElement('form') //REMOVE AFTER TIM CHANGE FORM CLASS
+
+            this.inputTitle = new ElementInput("text", "Card name", "", "", "Search by title")
+        this.dueDateSelector = new ElementSelect([{cl:"classname", text:"done"}, {cl:"classname", text:"open"}], "filter__select", "Status")
+        this.prioritySelector = new ElementSelect([{cl:"classname", text:"high"}, {cl:"classname", text:"normal"}, {cl:"classname", text:"low"}], "filter__select", "Priority")
+
         this.button = document.createElement("button")
         this.cards = data.map(el => {
             el.data = "2010-12-17T03:24:00"
@@ -45,7 +48,7 @@ export default class FilterForm{
             }
 
         })
-       // this.cardlist.clearcards();
+       // this.cardlist.clearCards();
        // this.cardList.renderCads(filteredCards);
 
 
@@ -57,17 +60,19 @@ export default class FilterForm{
         console.log(this.cardsAPI)
         const {parent, form, inputTitle, dueDate, prioritySelector, button, dueDateSelector} = this;
         button.innerHTML = "SEARCH"
-        console.log(inputTitle);
+        button.className = "header__button-login "
        const inpt = inputTitle.render()
-        console.log(inpt);
         const date = dueDateSelector.render()
         const priority = prioritySelector.render()
+        form.className = "filter__form";
         form.append(inpt,date,priority, button)
        parent.append(form);
 
+
+
         button.addEventListener("click", (e) => this.filterHandler(e, inpt, date, priority))
         // this.cardlist = new CardList()
-        // this.cardlist.render();
+        // this.cardlist.render(parent, "","");
         // this.cardlist.renderCards(this.cardsAPI);
         //
     }
