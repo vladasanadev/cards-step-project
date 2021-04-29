@@ -7,17 +7,14 @@ export default class ElementBtn{
         };
         this.render = () => {
             const {type, defaultClass, textContent} = this.elements;
-            let btn = document.createElement('button');
-            btn.type = `${type}`;
-            btn.className = `${defaultClass}`;
-            btn.textContent = `${textContent}`;
+            this.btn = document.createElement('button');
+            this.btn.type = `${type}`;
+            this.btn.className = `${defaultClass}`;
+            this.btn.textContent = `${textContent}`;
             if (data) {
-                btn.dataset.value = `${data}`;
+                this.btn.dataset.value = `${data}`;
             };
-            return btn;
+            return this.btn;
         };
     };
 };
-
-// const elementBtn = new ElementBtn('button', 'btn-class', 'Click-me!').render();
-// new ElementBtn('button', 'btn-class', 'Click-me!').render();

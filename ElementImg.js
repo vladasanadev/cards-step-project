@@ -8,22 +8,17 @@ export default class ElementImg{
         };
         this.render = () => {
             const {defaultClass, src, width, height} = this.elements;
-            let img = document.createElement('img');
-            img.className = `${defaultClass}`;
-            img.src = `${src}`;
+            this.img = document.createElement('img');
+            this.img.className = `${defaultClass}`;
+            this.img.src = `${src}`;
             if (width && height) {
-                img.width = `${width}`;
-                img.height = `${height}`;
+                this.img.width = `${width}`;
+                this.img.height = `${height}`;
             };
             if (data) {
-                btn.dataset.value = `${data}`;
+                this.img.dataset.value = `${data}`;
             };
-            return img;
+            return this.img;
         };
     };
 };
-
-// const elementImg = new ElementImg('img', `https://st2.depositphotos.com/4285045/7260/i/600/depositphotos_72609979-stock-photo-ojos-de-gata.jpg`, 100, 200).render()
-// const elementImg = new ElementImg('img', `https://st2.depositphotos.com/4285045/7260/i/600/depositphotos_72609979-stock-photo-ojos-de-gata.jpg`).render()
-// new ElementImg('img', `https://st2.depositphotos.com/4285045/7260/i/600/depositphotos_72609979-stock-photo-ojos-de-gata.jpg`, 100, 200).render()
-// new ElementImg('img', `https://st2.depositphotos.com/4285045/7260/i/600/depositphotos_72609979-stock-photo-ojos-de-gata.jpg`).render()

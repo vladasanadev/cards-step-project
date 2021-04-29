@@ -1,26 +1,25 @@
 export default class ElementSelect{
-    constructor(arr, selectClass, data, dataSelect){
+    constructor(arr, selectClass, dataSelect, lableSelect){
         this.arr = arr;
         this.optionAppend = (element, select) => {
-            let option = document.createElement('option');
-                option.className = element.cl;
-                option.textContent = `${element.text}`;
-                if (data) {
-                    btn.dataset.value = `${data}`;
+            this.option = document.createElement('option');
+            this.option.className = element.cl;
+            this.option.textContent = `${element.text}`;
+                if (this.option.data) {
+                    btn.dataset.value = `${element.data}`;
                 };
-                select.append(option);
+                select.append(this.option);
         };
         this.render = () => {
-            let select = document.createElement('select');
-            select.className = `${selectClass}`
+            this.select = document.createElement('select');
+            this.select.className = `${selectClass}`
             if (dataSelect) {
-                btn.dataset.value = `${dataSelect}`;
+                this.select.dataset.value = `${dataSelect}`;
+            } else if (lableSelect) {
+                this.select.labels
             };
-            this.arr.forEach(element => {this.optionAppend(element, select, data)});
-            return select;
+            this.arr.forEach(element => {this.optionAppend(element, this.select)});
+            return this.select;
         };
     };
 };
-
-// const elementSelect = new ElementSelect([{cl: 'make-ch', text: 'Сделайте вибор'}, {cl: 'cardiologist-option', text: 'Обычная'},{cl: 'dentist-option', text: 'Приоритетная'},{cl: 'therapist-option', text: 'Неотложная'}]).render()
-// new ElementSelect([{cl: 'make-ch', text: 'Сделайте вибор'}, {cl: 'cardiologist-option', text: 'Обычная'},{cl: 'dentist-option', text: 'Приоритетная'},{cl: 'therapist-option', text: 'Неотложная'}]).render()
