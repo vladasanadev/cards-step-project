@@ -10,5 +10,3 @@ export default class Modal{
       } 
     }
 }
-
-new Modal().createCardCreaterForm();
