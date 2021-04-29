@@ -35,7 +35,7 @@ export default class ElementForm{
             switch (e.target.value) {
                 case 'Кардиолог': {
                     this.form.className = `${defaultClass}`;
-                    this.form.append(title, selectDoctor, inputPurpose, textareaShortInfo, selectOrder, InputFIO, inputPressure, inputBmi, textareaInfo, inputAge, createCardBtn);
+                    this.form.append(title, selectDoctor, inputPurpose, textareaShortInfo, selectOrder, InputFIO, inputPressure, inputBmi, textareaInfo, inputAge, inputDate, createCardBtn);
                     parent.append(this.form);
                     break;
                 };
@@ -47,7 +47,7 @@ export default class ElementForm{
                 };
                 case 'Терапевт': {
                     this.form.className = `${defaultClass}`;
-                    this.form.append(title, selectDoctor, inputPurpose, textareaShortInfo, selectOrder, InputFIO, inputAge, createCardBtn);
+                    this.form.append(title, selectDoctor, inputPurpose, textareaShortInfo, selectOrder, InputFIO, inputAge, inputDate, createCardBtn);
                     parent.append(this.form);
                     break;
                 };
@@ -70,6 +70,7 @@ export default class ElementForm{
         
         this.formCreateCardSubmit = (e) => {
             e.preventDefault()
+            parent.remove()
             fetch("https://ajax.test-danit.com/api/v2/cards", {
             method: 'POST',
             headers: {
