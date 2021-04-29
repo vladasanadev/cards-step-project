@@ -47,6 +47,7 @@ export default class LoginForm {
         //         sessionStorage.setItem("token", JSON.stringify(token))
         //     })
         const token = await API.login({email: userEmail.value, password: password.value});
+        console.log(token, "HERE");
         API.saveToken(token)
         form.remove();
         window.location.reload()

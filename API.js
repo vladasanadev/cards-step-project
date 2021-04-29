@@ -4,7 +4,7 @@ export default class API {
     static getHeaders() {
         return {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${API.token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
     }
 
@@ -21,7 +21,7 @@ export default class API {
 
     static saveToken(tokenFromResponse) {
         API.token = tokenFromResponse;
-        sessionStorage.setItem("token", JSON.stringify(tokenFromResponse))
+        sessionStorage.setItem("token", tokenFromResponse)
     };
 
     static async saveCard(cardToSave) {
@@ -35,15 +35,17 @@ export default class API {
     }
 
     static async getAllCards () {
-        const res = await fetch(`${API.URL}/cards`, {
+        if (!API.token) API.token = sessionStorage.getItem('token')
+        console.log(API.getHeaders())
+        const res = await fetch(`${API.URL}/`, {
             method: 'GET',
             headers: API.getHeaders(),
         });
-
         return res.json();
     }
 
     static async deleteCard (id) {
+
         const res = await fetch(`${API.URL}/cards/${id}`, {
             method: 'DELETE',
             headers: {
