@@ -74,12 +74,12 @@ export default class ElementForm{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
+              'Authorization': `Bearer ${sessionStorage.getItem('token')}`
             },
             body: JSON.stringify(this.createUserElements(e))
             })
             .then(res => res.json())
-            .then(response => console.log(response))
+            .then(response => response)
         }
         this.formCreateCard = () => {
             const {parent, defaultClass} = this.elements;
