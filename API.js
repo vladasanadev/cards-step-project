@@ -36,7 +36,7 @@ export default class API {
 
     static async getAllCards () {
         if (!API.token) API.token = sessionStorage.getItem('token')
-        console.log(API.getHeaders())
+        // console.log(API.getHeaders())
         const res = await fetch(`${API.URL}/`, {
             method: 'GET',
             headers: API.getHeaders(),
