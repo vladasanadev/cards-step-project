@@ -6,6 +6,6 @@ const header = new Header();
 header.render();
 
 const cardList = new CardList();
-cardList.render();
+// cardList.render();
 
 
