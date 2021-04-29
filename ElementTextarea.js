@@ -6,16 +6,13 @@ export default class ElementTextarea{
         };
         this.render = () => {
             const {placeholder, defaultClass} = this.elements;
-            let textarea = document.createElement('textarea');
-            textarea.placeholder = `${placeholder}`;
-            textarea.className = `${defaultClass}`;
+            this.textarea = document.createElement('textarea');
+            this.textarea.placeholder = `${placeholder}`;
+            this.textarea.className = `${defaultClass}`;
             if (data) {
-                btn.dataset.value = `${data}`;
+                this.textarea.dataset.value = `${data}`;
             };
-            return textarea;
+            return this.textarea;
         };
     };
 };
-
-// const elementTextarea = new ElementTextarea('Что-то за текстом','selectarea-class').render();
-// new ElementTextarea('Что-то за текстом','selectarea-class').render();

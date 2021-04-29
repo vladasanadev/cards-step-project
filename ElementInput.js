@@ -1,5 +1,5 @@
 export default class ElementInput{
-    constructor(tp, ph, cl, data){
+    constructor(tp, ph, cl, data, label, required){
         this.elements = {
             type: tp,
             placeholder: ph,
@@ -7,17 +7,23 @@ export default class ElementInput{
         };
         this.render = () => {
             const {type, placeholder, defaultClass} = this.elements;
-            let input = document.createElement('input');
-            input.type = type;
-            input.placeholder = placeholder;
-            input.className =`${defaultClass}`;
+            this.input = document.createElement('input');
+            if(label){
+                this.label = document.createElement('label');
+                this.label.for = `${label}`;
+                this.input.append(this.label);
+            }
+            this.input.type = type;
+            this.input.placeholder = placeholder;
+            this.input.className =`${defaultClass}`;
             if (data) {
-                btn.dataset.value = `${data}`;
-            };
-            return input;
+                this.input.dataset.value = `${data}`;
+            }
+            if (required) {
+                this.input.setAttribute('required', '')
+            }          
+            return this.input
         };
     };
 };
 
-// const elementInput = new ElementInput('text', 'Что-то за текстом', 'input-class').render()
-// new ElementInput('text', 'Что-то за текстом', 'input-class').render()
