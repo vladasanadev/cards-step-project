@@ -3,7 +3,6 @@ import ElementForm from "./ElementForm.js";
 export default class Modal{
   constructor(){
     this.closeForm = (e, self) => {
-      e.preventDefault()
       if (e.target.className === `modal-wrapper`) self.remove()
     }
       this.createCardCreaterForm = () => {

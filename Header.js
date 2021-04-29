@@ -24,15 +24,14 @@ export default class Header {
         btnLogin.addEventListener("click", e => {
             const login = new LoginForm(document.querySelector('.container'));
             login.render();
-        }); // open modal window login
+        });
 
         btnCreateVisit.classList.add("header__button-create-elem");
         btnCreateVisit.textContent = "Create Visit";
         btnCreateVisit.addEventListener("click", e => {
             const modal = new Modal();
             modal.render();
-        }); // on click open modal window Create Visit
-
+        });
 
         sessionStorage.getItem("token") ? header.append(imgLogo, btnCreateVisit) : header.append(imgLogo, btnLogin);
         parent.prepend(header);
