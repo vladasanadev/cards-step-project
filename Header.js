@@ -1,5 +1,6 @@
 import LoginForm from "./LoginForm.js";
 import Modal from "./Modal.js";
+import FilterForm from "./FilterForm.js";
 
 export default class Header {
     constructor() {
@@ -32,8 +33,12 @@ export default class Header {
             const modal = new Modal();
             modal.render();
         });
-
+        const filterForm = new FilterForm(parent);
         sessionStorage.getItem("token") ? header.append(imgLogo, btnCreateVisit) : header.append(imgLogo, btnLogin);
         parent.prepend(header);
+        if (sessionStorage.getItem("token"))
+        {
+            filterForm.render();
+        }
     }
 }

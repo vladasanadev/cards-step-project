@@ -48,7 +48,7 @@ export default class CardList {
         document.body.append(this.parent);
     }
 }
-let cardList = new CardList();
-const cardsApi = await API.getAllCards();
-cardList.renderCards(cardsApi);
-cardList.render();
+// let cardList = new CardList();
+// const cardsApi = await API.getAllCards();
+// cardList.renderCards(cardsApi);
+// cardList.render();
