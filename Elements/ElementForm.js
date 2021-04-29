@@ -79,7 +79,7 @@ export default class ElementForm{
             body: JSON.stringify(this.createUserElements(e))
             })
             .then(res => res.json())
-            .then(response => response)
+            .then(response => console.log(response))
         }
         this.formCreateCard = () => {
             const {parent, defaultClass} = this.elements;

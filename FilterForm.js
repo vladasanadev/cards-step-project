@@ -1,5 +1,5 @@
-import ElementSelect from "./ElementSelect.js"
-import ElementInput from "./ElementInput.js"
+import ElementSelect from "./Elements/ElementSelect.js"
+import ElementInput from "./Elements/ElementInput.js"
 import API from "./API.js"
 import CardList from "./CardList.js";
 

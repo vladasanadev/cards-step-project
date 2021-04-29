@@ -30,8 +30,7 @@ export default class Header {
         btnCreateVisit.classList.add("header__button-create-elem");
         btnCreateVisit.textContent = "Create Visit";
         btnCreateVisit.addEventListener("click", e => {
-            const modal = new Modal();
-            modal.render();
+            Modal.сardCreateForm()
         });
         const filterForm = new FilterForm(parent);
         sessionStorage.getItem("token") ? header.append(imgLogo, btnCreateVisit) : header.append(imgLogo, btnLogin);
