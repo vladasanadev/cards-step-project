@@ -1,8 +1,7 @@
 import ElementSelect from "./ElementSelect.js"
 import ElementInput from "./ElementInput.js"
-import ElementBtn from "./ElementBtn.js";
 import API from "./API.js"
-// import CardList from "./CardList";
+import CardList from "./CardList.js";
 
 
 export default class FilterForm{
@@ -48,8 +47,8 @@ export default class FilterForm{
             }
 
         })
-       // this.cardlist.clearCards();
-       // this.cardList.renderCads(filteredCards);
+       this.cardlist.clearCards();
+        this.cardlist.renderCards(filteredCards);
 
 
     }
@@ -71,10 +70,10 @@ export default class FilterForm{
 
 
         button.addEventListener("click", (e) => this.filterHandler(e, inpt, date, priority))
-        // this.cardlist = new CardList()
-        // this.cardlist.render(parent, "","");
-        // this.cardlist.renderCards(this.cardsAPI);
-        //
+        this.cardlist = new CardList()
+        this.cardlist.render(parent, "","");
+        this.cardlist.renderCards(this.cardsAPI);
+
     }
 }
 
