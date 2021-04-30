@@ -2,6 +2,7 @@ import ElementInput from "./ElementInput.js";
 import ElementSelect from "./ElementSelect.js";
 import ElementTextarea from "./ElementTextarea.js";
 import ElementBtn from "./ElementBtn.js";
+import API from "../API.js";
 
 export default class ElementForm{
     constructor(parent, c, data){
@@ -94,13 +95,47 @@ export default class ElementForm{
             this.form.addEventListener('submit', e => {this.formCreateCardSubmit(e)})
             parent.append(this.form);
         };
+        this.elementsForLogin = {
+            title: document.createElement('h3'),
+            inputEmail: new ElementInput('text', 'Email', `login__email`, ``, ``, true).render(),
+            inputPwd: new ElementInput('text', 'Password', `login__password`, ``, ``, true).render(),
+            btnLogin: new ElementBtn(`submit`, `login__btn`, `LOGIN`).render(),
+            inputToggle: new ElementInput('checkbox', '', `toggle-password`, ``, `toggle-password`, false).render()
+        }
+        this.toggleClicked = () => {
+            const {inputPwd, inputToggle} = this.elementsForLogin
+            inputPwd.classList.toggle('visible');
+            console.log(inputToggle.checked)
+            if (inputToggle.checked) {
+                inputPwd.type = "text";
+            } else {
+                inputPwd.type = "password";
+            }
+        }
+        this.handleLogin = (e) => {
+            e.preventDefault()
+            API.login({email: e.target[0].value, password: e.target[1].value})
+            parent.remove()
+        }
+        this.formLogin = () => {
+            const {parent, defaultClass} = this.elements;
+            const {title, inputEmail, inputPwd, btnLogin, inputToggle} = this.elementsForLogin
+            title.className = `login__instructions`;
+            title.textContent = `Sign in`
+            inputPwd.id = `password`;
+            inputPwd.name = `password`;
+            inputToggle.id = `toggle-password`;
+            this.form = document.createElement('form');
+            this.form.className = `${defaultClass}`;
+            this.form.append(title, inputEmail, inputPwd, btnLogin, inputToggle)
+            inputToggle.addEventListener("click", () => this.toggleClicked());
+            this.form.addEventListener("submit", (e) => this.handleLogin(e))
+            parent.append(this.form)
+        }
         this.render = () => {
             const {parent, defaultClass} = this.elements;
             this.form = document.createElement('form');
             this.form.className = `${defaultClass}`;
-            if (data) {
-                this.form.dataset.value = `${data}`;
-            };
             parent.append(this.form);
             return parent;
         };

@@ -15,13 +15,8 @@ export default class API {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(userData)
-        }).then(result => result.text());
-        return result
-    };
-
-    static saveToken(tokenFromResponse) {
-        API.token = tokenFromResponse;
-        sessionStorage.setItem("token", tokenFromResponse)
+        }).then(response => response.text());
+        return sessionStorage.setItem("token", result)
     };
 
     static async saveCard(cardToSave) {

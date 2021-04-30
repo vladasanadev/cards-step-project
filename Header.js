@@ -23,8 +23,7 @@ export default class Header {
         btnLogin.classList.add("header__button-login");
         btnLogin.textContent = "Login";
         btnLogin.addEventListener("click", e => {
-            const login = new LoginForm(document.querySelector('.container'));
-            login.render();
+            Modal.loginCreateForm()
         });
 
         btnCreateVisit.classList.add("header__button-create-elem");
